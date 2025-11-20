@@ -12,8 +12,6 @@ NEW_AUTHOR_DATA = {
 def test_tc33_create_new_author_success():
     """TC33: Criar novo Author (POST /Authors)"""
     response = requests.post(AUTHORS_ENDPOINT, json=NEW_AUTHOR_DATA)
-    
-    # A API de teste pode retornar 200 ou 201 para criação
     assert response.status_code in [200, 201]
     
     data = response.json()

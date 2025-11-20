@@ -16,6 +16,5 @@ class TestPutActivities:
 
         assert resp.status_code == 200
         dados = resp.json()
-        # Title should be updated and there should be a boolean completed flag
         assert dados.get("title") == payload["title"]
         assert isinstance(dados.get("completed"), bool) or isinstance(dados.get("isCompleted"), bool)

@@ -13,7 +13,6 @@ AUTHOR_TO_DELETE = {
 def setup_author_for_deletion():
     """Cria um Author antes dos testes e tenta deletá-lo."""
     post_response = requests.post(AUTHORS_ENDPOINT, json=AUTHOR_TO_DELETE)
-    # A API de teste pode retornar 200 ou 201 para criação
     assert post_response.status_code in [200, 201]
     
     yield AUTHOR_TO_DELETE["id"]
@@ -27,6 +26,5 @@ def test_tc36_delete_author_success(setup_author_for_deletion):
     
     assert delete_response.status_code == 200
     
-    # Tenta buscar para confirmar a deleção (espera-se 404)
     get_response = requests.get(url)
     assert get_response.status_code == 404

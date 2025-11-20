@@ -2,7 +2,7 @@ import requests
 
 
 class TestGetActivities:
-    BASE_URL = "https://fakerestapi.azurewebsites.net/api/v1"  # coloque sua porta correta
+    BASE_URL = "https://fakerestapi.azurewebsites.net/api/v1"
 
     def test_tc01_listar_todas_atividades(self):
         url = f"{self.BASE_URL}/Activities"

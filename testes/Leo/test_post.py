@@ -12,7 +12,6 @@ def test_tc23_create_new_cover_photo_success():
     """TC23: Criar nova CoverPhoto (POST /CoverPhotos)"""
     response = requests.post(COVER_PHOTOS_ENDPOINT, json=NEW_COVER_PHOTO_DATA)
     
-    # A API de teste pode retornar 200 ou 201 para criação
     assert response.status_code in [200, 201]
     
     data = response.json()

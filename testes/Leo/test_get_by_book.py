@@ -12,10 +12,6 @@ def test_tc27_get_cover_photos_by_book_id_success(book_id):
     data = response.json()
 
     assert isinstance(data, list), "A resposta deve ser uma lista."
-    # O endpoint pode retornar uma lista vazia, então não vou forçar len(data) > 0
-    # assert len(data) > 0, "A lista de CoverPhotos não pode estar vazia."
-    
-    # Se houver dados, verifica se todos pertencem ao idBook correto
     if data:
         for item in data:
             assert item["idBook"] == book_id

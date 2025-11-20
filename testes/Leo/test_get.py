@@ -9,5 +9,3 @@ def test_tc21_list_all_cover_photos_success():
     data = response.json()
 
     assert isinstance(data, list), "A resposta deve ser uma lista."
-    # O endpoint CoverPhotos pode retornar uma lista vazia, então não vou forçar len(data) > 0
-    # assert len(data) > 0, "A lista de CoverPhotos não pode estar vazia."

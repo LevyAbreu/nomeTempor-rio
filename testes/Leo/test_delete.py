@@ -12,7 +12,6 @@ COVER_PHOTO_TO_DELETE = {
 def setup_cover_photo_for_deletion():
     """Cria uma CoverPhoto antes dos testes e tenta deletá-la."""
     post_response = requests.post(COVER_PHOTOS_ENDPOINT, json=COVER_PHOTO_TO_DELETE)
-    # A API de teste pode retornar 200 ou 201 para criação
     assert post_response.status_code in [200, 201]
     
     yield COVER_PHOTO_TO_DELETE["id"]
@@ -26,6 +25,5 @@ def test_tc26_delete_cover_photo_success(setup_cover_photo_for_deletion):
     
     assert delete_response.status_code == 200
     
-    # Tenta buscar para confirmar a deleção (espera-se 404)
     get_response = requests.get(url)
     assert get_response.status_code == 404
