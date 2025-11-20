@@ -2,7 +2,7 @@ import requests
 
 
 class TestPostActivities:
-    BASE_URL = "http://localhost:5077/api/v1"
+    BASE_URL = "https://fakerestapi.azurewebsites.net/api/v1"
 
     def test_tc03_criar_nova_atividade(self):
         url = f"{self.BASE_URL}/Activities"

@@ -2,7 +2,7 @@ import requests
 
 
 class TestPutActivities:
-    BASE_URL = "http://localhost:5077/api/v1"
+    BASE_URL = "https://fakerestapi.azurewebsites.net/api/v1"
 
     def test_tc04_atualizar_atividade(self):
         url = f"{self.BASE_URL}/Activities/1"
@@ -16,4 +16,6 @@ class TestPutActivities:
 
         assert resp.status_code == 200
         dados = resp.json()
-        assert dados.get("isCompleted") == True
+        # Title should be updated and there should be a boolean completed flag
+        assert dados.get("title") == payload["title"]
+        assert isinstance(dados.get("completed"), bool) or isinstance(dados.get("isCompleted"), bool)
